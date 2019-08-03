@@ -1,0 +1,9 @@
+nav ul li a:hover {
+  background-color: #0089d1;
+}
+/* .nav-item {
+  width: 70px !important;
+} */
+nav {
+  font-size: 18px;
+}

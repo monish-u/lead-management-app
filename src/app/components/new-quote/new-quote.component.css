@@ -1,0 +1,23 @@
+.form-check  {
+    margin-top: 3%;
+    
+}
+
+.quoteTypes .form-check {
+    font-size: 18px;
+}
+
+.quote-header {
+    margin-top: 12%;
+}
+
+.sub-types > .form-check {
+    font-size: 15px;
+}
+
+.quote-details-box {
+    border: 1px solid grey;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: grey 0px 2px 4px 3px;
+}

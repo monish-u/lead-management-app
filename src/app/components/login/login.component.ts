@@ -17,6 +17,13 @@ export class LoginComponent implements OnInit {
   user_password;
   public onLoginClick() {
     this.__spinner.show();
+    let obj = {
+      username: this.user_name,
+      password: this.user_password
+    };
+    this.__http.loginBorrower(obj).subscribe(response => {
+      console.log(response);
+    });
   }
 
   ngOnInit() {}

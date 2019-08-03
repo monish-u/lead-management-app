@@ -8,10 +8,23 @@ import { EnquiryFormComponent } from "./components/enquiry-form/enquiry-form.com
 import { CampaignManagementComponent } from "./components/campaign-management/campaign-management.component";
 import { AuthguardGuard } from "./authguard.guard";
 import { RegisterFormComponent } from "./register-form/register-form.component";
+import { NewQuoteComponent } from './components/new-quote/new-quote.component';
+import { QuotesListComponent } from './components/quotes-list/quotes-list.component';
+
 const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
+    canActivate: [AuthguardGuard]
+  },
+  {
+    path: "quotes-list",
+    component: QuotesListComponent,
+    canActivate: [AuthguardGuard]
+  },
+  {
+    path: "new-quote",
+    component: NewQuoteComponent,
     canActivate: [AuthguardGuard]
   },
   {

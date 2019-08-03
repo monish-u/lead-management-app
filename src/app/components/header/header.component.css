@@ -1,20 +1,9 @@
-img {
-  height: 100px;
-  width: 105px;
-}
-
-#navbarText a {
-  color: #fff;
-}
-
-#navbarText a:hover {
-  color: #fff;
-}
-
-nav.navbar {
+nav ul li a:hover {
   background-color: #0089d1;
 }
-
-li.nav-item {
-  padding: 0 15px;
+/* .nav-item {
+  width: 70px !important;
+} */
+nav {
+  font-size: 18px;
 }

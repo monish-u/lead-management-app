@@ -11,12 +11,12 @@ const httpOptions = {
 })
 export class ApiRequestService {
   constructor(private http: HttpClient) {}
-  loginBorrower() {
-    return this.http.get("/api/loginBorrower", httpOptions);
+  loginBorrower(data) {
+    return this.http.post("/api/loginBorrower", data, httpOptions);
   }
   registerCustomer(data) {
     return this.http.post(
-      "http://localhost:3000/api/registerCustomer",
+      "http://192.168.1.103:9121/registerCustomer",
       data,
       httpOptions
     );

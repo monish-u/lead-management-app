@@ -20,6 +20,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TagInputModule } from "ngx-chips";
 import { CampaignManagementComponent } from "./components/campaign-management/campaign-management.component";
 import { RegisterFormComponent } from "./register-form/register-form.component";
+import { NewQuoteComponent } from './components/new-quote/new-quote.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { QuotesListComponent } from './components/quotes-list/quotes-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { RegisterFormComponent } from "./register-form/register-form.component";
     CreateLeadModalComponent,
     EnquiryFormComponent,
     CampaignManagementComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    NewQuoteComponent,
+    FooterComponent,
+    QuotesListComponent
   ],
   imports: [
     BrowserModule,

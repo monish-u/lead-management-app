@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <h3 class="mt-4">Fetched Quotes</h3>
+  <div class="row mt-4">
+    
+    <div class="col-md-8 offset-md-2">
+      <div *ngFor="let quote of fetchedQuotes" class="card animated bounceInDown card-quote">
+        <div class="card-body">
+          <div class="row">
+          <div class="col-md-3 card-title">Amount : {{quote.amountAvailable}}</div>
+          <div class="col-md-3 card-title">Lender: {{quote.lenderName}}</div>
+          <div class="col-md-3 card-title">Interest: {{quote.interestRate}}</div>
+          <div class="col-md-3"><a href="#" class="btn btn-primary">More info</a></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
