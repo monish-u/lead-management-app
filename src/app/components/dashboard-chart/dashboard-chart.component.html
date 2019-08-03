@@ -1,0 +1,20 @@
+<!-- <div class="container">
+  <div style="display: block" *ngIf="loaded">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+      [chartType]="barChartType"></canvas>
+  </div>
+</div> -->
+
+<div class="container">
+  <div>
+    <div style="display: block" *ngIf="loaded">
+      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+        [legend]="pieChartLegend" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>
+<div>
+</div>
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0.27)" size="medium" color="#fff" type="ball-circus" fullScreen="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

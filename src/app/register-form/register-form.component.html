@@ -1,0 +1,137 @@
+<div class="container-fluid">
+  <div class="row" style="height:70px;background-color:#0089D1;">
+    <div class="form-group row" style="height: 45px;">
+      <h1
+        style="padding-left:20px;font-size: 45px;color: white;font-family:Comic Sans MS;"
+      >
+        SPLendMe
+      </h1>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-sm-4">
+      <br />
+      <h2>Let's get started !</h2>
+      <br />
+      <form>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="text"
+              [(ngModel)]="first_name"
+              name="first_name"
+              class="form-control"
+              required="required"
+              placeholder="First Name"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="text"
+              [(ngModel)]="last_name"
+              name="user_name"
+              class="form-control"
+              required="required"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="text"
+              [(ngModel)]="mobile_number"
+              name="mobile_number"
+              class="form-control"
+              required="required"
+              maxlength="10"
+              placeholder="Mobile Number"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="text"
+              [(ngModel)]="user_email"
+              name="user_email"
+              class="form-control"
+              required="required"
+              placeholder="Email ID"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="date"
+              [(ngModel)]="date_of_birth"
+              name="date_of_birth"
+              class="form-control"
+              required="required"
+              (blur)="checkDB()"
+              placeholder="Date of Birth"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="text"
+              [(ngModel)]="user_id"
+              name="user_id"
+              class="form-control"
+              required="required"
+              placeholder="User ID"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="password"
+              [(ngModel)]="user_password"
+              name="user_password"
+              class="form-control"
+              required="required"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <input
+              type="password"
+              [(ngModel)]="user_confirm_password"
+              name="user_confirm_password"
+              class="form-control"
+              required="required"
+              placeholder="Confirm Password"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block col-sm-4 offset-sm-4"
+              (click)="onRegisterClick()"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6">
+      One of three columns
+    </div>
+  </div>
+</div>

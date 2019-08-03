@@ -1,0 +1,171 @@
+<app-header></app-header>
+<div class="container" (click)="bindEventContainer($event)">
+  <br />
+  <div class="row" [hidden]="showPageData !='year-month'">
+    <div class=" col-md-3">
+      <button type="button" [ngClass]="{active: (selectedClass == '2017')}" class="btn btn-info btn-block" (click)="showMonth(2017)">2017</button>
+    </div>
+    <div class="col-md-3">
+      <button type="button" [ngClass]="{active: (selectedClass == '2018')}" class="btn btn-success btn-block" (click)="showMonth(2018)">2018</button>
+    </div>
+    <div class="col-md-3">
+      <button type="button" [ngClass]="{active: (selectedClass == '2019')}" class="btn btn-warning btn-block" (click)="showMonth(2019)">2019</button>
+    </div>
+  </div>
+  <br />
+  <div class="row" [hidden]="showPageData !='year-month'">
+    <div class=" col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">January</button>
+      <div [hidden]="showReportLink !='January' || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='January' || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">February</button>
+      <div [hidden]="showReportLink !='February'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink != 'February'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">March</button>
+      <div [hidden]="showReportLink !='March'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='March'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">April</button>
+      <div [hidden]="showReportLink !='April'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='April'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">May</button>
+      <div [hidden]="showReportLink !='May'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='May'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">June</button>
+      <div [hidden]="showReportLink !='June'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='June'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+  </div>
+  <br />
+  <div class="row" [hidden]="showPageData !='year-month'">
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">July</button>
+      <div [hidden]="showReportLink !='July'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='July'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">August</button>
+      <div [hidden]="showReportLink !='August'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='August'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">September</button>
+      <div [hidden]="showReportLink !='September'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='September'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">October</button>
+      <div [hidden]="showReportLink !='October'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='October'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">November</button>
+      <div [hidden]="showReportLink !='November'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='November'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [ngClass]="{'btn-info': (selectedClass == '2017'),'btn-success':(selectedClass == '2018'),'btn-warning':(selectedClass == '2019')}"
+        class="btn btn-block month-button">December</button>
+      <div [hidden]="showReportLink !='December'  || showReportLink =='default'" class="report-class view-full-report">View
+        Full Report</div>
+      <div [hidden]="showReportLink !='December'  || showReportLink =='default'" class="report-class print-report-summary">Print
+        Report Summary</div>
+    </div>
+  </div>
+  <div class="row" [hidden]="showPageData !='view-full-report'">
+    <div class="col-md-3">
+      <button type="button" class="btn btn-block btn-info">{{showReportLink}} - {{selectedClass}}</button>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-block btn-primary full-report-back">Back</button>
+    </div>
+  </div>
+  <br />
+  <table class="table table-bordered table-sm" [hidden]="showPageData !='view-full-report'">
+    <thead>
+      <tr>
+        <th>Marketing Activity</th>
+        <th>Date</th>
+        <th>Venue</th>
+        <th>Channels</th>
+        <th>Managed By</th>
+        <th>Lead Information</th>
+        <th>Lead Contacted By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>Doe</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+{
+  "higher_qualification": [{
+      "name": "SPM"
+    },
+    {
+      "name": "STPM"
+    },
+    {
+      "name": "O- Level"
+    },
+    {
+      "name": "Diploma"
+    },
+    {
+      "name": "Foundation"
+    },
+    {
+      "name": "A- Level"
+    },
+    {
+      "name": "AUSMAT"
+    },
+    {
+      "name": "HSC"
+    },
+    {
+      "name": "CPU"
+    },
+    {
+      "name": "SAM"
+    },
+    {
+      "name": "UEC"
+    },
+    {
+      "name": "SPM Forecast"
+    },
+    {
+      "name": "CERT"
+    }
+  ]
+}

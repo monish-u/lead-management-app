@@ -1,0 +1,190 @@
+<app-header></app-header>
+<div class="container">
+  <br />
+  <div class="row show-create-event-button">
+    <div class="col-sm-2">
+      <button [hidden]="hideEventsList" type="button" class="btn btn-block btn-info" (click)="createEventsList()">Create
+        Campaign</button>
+    </div>
+    <div class="col-sm-8"></div>
+    <div class=" col-sm-2">
+      <button [hidden]="!hideEventsList" type="button" class="btn btn-block btn-info" (click)="backEventsList()">Back</button>
+    </div>
+  </div>
+  <br />
+  <div class="row list-create-event" [hidden]="hideEventsList" style="text-align: center;">
+    <table class="table table-bordered table-sm">
+      <thead>
+        <tr>
+          <th>Campaign Name</th>
+          <th>Campaign Category</th>
+          <th>Created By</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of eventsListArr;let k=index">
+          <td>{{data.campaign_name}}</td>
+          <td>{{data.campaign_category}}</td>
+          <td>{{data.event_created_by}}</td>
+          <td>{{data.event_from_date}}</td>
+          <td>{{data.event_to_date}}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-primary" (click)="viewEventsDetails(k)">View</button>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-sm btn-success" (click)="open(content,data.id)">Share</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br />
+  <div class="row create-event" [hidden]="!hideEventsList">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="campaign_category">Campaign Category:</label>
+        <input type="text" class="form-control" [hidden]="!dataPresent" [readOnly]="true" [value]="campaign_category">
+        <select (change)="selectCampaignName()" [hidden]="dataPresent" [(ngModel)]="campaign_category" name="channel"
+          class="form-control" id="campaign_category">
+          <option [value]="0" selected="selected">--select category--</option>
+          <option *ngFor="let o of campaignCategory" [ngValue]="o.name">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="campaign_name">Campaign Name:</label>
+        <input type="text" class="form-control" [hidden]="!dataPresent" [readOnly]="true" [value]="campaign_name">
+        <select [hidden]="dataPresent" [(ngModel)]="campaign_name" name="campaign_name" class="form-control" id="campaign_name">
+          <option [value]="0" selected="selected">--select name--</option>
+          <option *ngFor="let o of campaignNamesList" [ngValue]="o.name">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="event_from_date"> From:</label>
+        <input type="date" [readOnly]="dataPresent" [(ngModel)]="event_from_date" class="form-control" id="event_from_date"
+          #eventDate>
+      </div>
+    </div>
+  </div>
+  <div class="row create-event" [hidden]="!hideEventsList">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="event_to_date">To:</label>
+        <input type="date" [readOnly]="dataPresent" [(ngModel)]="event_to_date" class="form-control" id="event_to_date"
+          #eventDate>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="event_state">State:</label>
+        <input type="text" class="form-control" [hidden]="!dataPresent" [readOnly]="true" [value]="event_state">
+        <select (change)="selectCity()" [(ngModel)]="event_state" [hidden]="dataPresent" name="event_state" class="form-control"
+          id="event_state">
+          <option [value]="0" selected="selected">--select state--</option>
+          <option *ngFor="let o of statesList" value="{{o.name}}">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="event_city">City:</label>
+        <input type="text" class="form-control" [hidden]="!dataPresent" [readOnly]="true" [value]="event_city">
+        <select [(ngModel)]="event_city" [hidden]="dataPresent" name="event_city" class="form-control">
+          <option [value]="0" selected="selected">--select city--</option>
+          <option *ngFor="let o of citiesSelectList" value="{{o.name}}">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row create-event" [hidden]="!hideEventsList">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="event_managed_by">Event Created By:</label>
+        <input type="text" [readOnly]="true" [hidden]="!dataPresent" [value]="event_created_by" class="form-control">
+        <select [(ngModel)]="event_created_by" [hidden]="dataPresent" name="event_created_by" class="form-control">
+          <option [value]="0" selected="selected">--select--</option>
+          <option *ngFor="let o of managedByList" value="{{o.name}}">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="event_managed_by">Event Managed By (1):</label>
+        <input type="text" [readOnly]="true" [hidden]="!dataPresent" [value]="event_managed_by_1" class="form-control">
+        <select [(ngModel)]="event_managed_by_1" [hidden]="dataPresent" name="event_managed_by_1" class="form-control">
+          <option [value]="0" selected="selected">--select--</option>
+          <option *ngFor="let o of managedByList" value="{{o.name}}">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        {{event_campaign_id}}
+        <label for="event_managed_by">Event Managed By (2):</label>
+        <input type="text" [readOnly]="true" [hidden]="!dataPresent" [value]="event_managed_by_2" class="form-control">
+        <select [(ngModel)]="event_managed_by_2" [hidden]="dataPresent" name="event_managed_by_2" class="form-control">
+          <option [value]="0" selected="selected">--select--</option>
+          <option *ngFor="let o of managedByList" value="{{o.name}}">
+            {{o.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row" [hidden]="event_campaign_id == 0">
+    <div class="col-sm-3">
+      <button type="button" class="btn btn-primary" (click)="viewLeads()">Add Leads</button>
+    </div>
+  </div>
+  <div class="row create-event" [hidden]="!hideEventsList">
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-2" [hidden]="dataPresent">
+      <button type="button" class="btn btn-primary" (click)="createList()">Create</button>
+    </div>
+    <div class="col-sm-5">
+    </div>
+  </div>
+</div>
+<ngx-spinner bdOpacity=0.9 bdColor="#333" size="medium" color="#fff" type="ball-circus" fullScreen="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Share Campaign</h4>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <span>{{selectedURL}}</span>
+      </div>
+      <div class="form-group">
+        <label for="student_email_list">Enter Email</label>
+        <div class="input-group">
+          <input id="student_email_list" [(ngModel)]="student_email_list" class="form-control" placeholder="abc@gmail.com,def@gmail.com"
+            name="dp">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Send</button>
+  </div>
+</ng-template>

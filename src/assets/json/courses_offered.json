@@ -1,0 +1,99 @@
+{
+  "courses_offered": [{
+      "name": "Foundation in Science"
+    },
+    {
+      "name": "Foundation in Business"
+    },
+    {
+      "name": "Diploma in Electrical and Electronic Engineering"
+    },
+    {
+      "name": "Diploma in Physiotherapy"
+    },
+    {
+      "name": "Diploma in Nursing"
+    },
+    {
+      "name": "Bachelor of Medicine and Bachelor of Surgery (MBBS)"
+    },
+    {
+      "name": "Bachelor of Pharmacy (Hons)"
+    },
+    {
+      "name": "Bachelor of Dental Surgery"
+    },
+    {
+      "name": "Bachelor of Dental Technology"
+    },
+    {
+      "name": "Bachelor of Physiotherapy (Hons)"
+    },
+    {
+      "name": "Bachelor of Science (Hons) Biotechnology"
+    },
+    {
+      "name": "Bachelor of Science (Hons) Bioinformatics"
+    },
+    {
+      "name": "Bachelor of Nursing Science (Hons)"
+    },
+    {
+      "name": "Bachelor of Engineering (Hons) in Electrical & ElectronicEngineering"
+    },
+    {
+      "name": "Bachelor of Science (Hons) Finance and Management"
+    },
+    {
+      "name": "Bachelor of Science (Hons) Business and Marketing"
+    },
+    {
+      "name": "Bachelor of Science (Hons) Management Information Systems"
+    },
+    {
+      "name": "Bsc. (Hons) Accounting and Finance"
+    },
+    {
+      "name": "Bachelor of Science (Honours) Internal Auditing and Management"
+    },
+    {
+      "name": "MSc in Biotechnology"
+    },
+    {
+      "name": "MSc in Medical Biochemistry"
+    },
+    {
+      "name": "MSc in Medical Physiology"
+    },
+    {
+      "name": "MSc in Human Anatomy"
+    },
+    {
+      "name": "MSc in Medical Microbiology"
+    },
+    {
+      "name": "Master of Pharmacy (Clinical Pharmacy)"
+    },
+    {
+      "name": "MSc in Pharmacy"
+    },
+    {
+      "name": "MSc in Management"
+    },
+    {
+      "name": "Master of Business Administration"
+    },
+    {
+      "name": "Doctor of Philosophy in Management"
+    },
+    {
+      "name": "Doctor of Philosophy (Biotechnology)"
+    },
+    {
+      "name": "Doctor of Philosophy (Pharmacy)"
+    },
+    {
+      "name": "Doctor of Philosophy (Medical Microbiology)"
+    }
+  ]
+}

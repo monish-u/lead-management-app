@@ -1,0 +1,30 @@
+{
+  "case_status": [{
+      "name": "Really interested"
+    },
+    {
+      "name": "Coming for campus visit"
+    },
+    {
+      "name": "Need to discuss with parents"
+    },
+    {
+      "name": "Need more information"
+    },
+    {
+      "name": "Qualified but considering"
+    },
+    {
+      "name": "Not Qualified"
+    },
+    {
+      "name": "Not interested"
+    },
+    {
+      "name": "Considering"
+    },
+    {
+      "name": "Not Reachable"
+    }
+  ]
+}

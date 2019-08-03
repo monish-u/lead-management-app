@@ -1,0 +1,9 @@
+.btn {
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.report-class {
+  text-align: center;
+  cursor: pointer;
+}

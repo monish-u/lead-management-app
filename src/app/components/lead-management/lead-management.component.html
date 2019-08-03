@@ -1,0 +1,307 @@
+<app-header></app-header>
+<div class="container">
+  <br /><br />
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <table class="table table-bordered table-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>NRIC</th>
+          <th>Mobile Number</th>
+          <th>Higher Qualification</th>
+          <th>School</th>
+          <th>Programme Interested</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of leadListArr;let k=index">
+          <td>{{data.student_name}}</td>
+          <td>{{data.nric}}</td>
+          <td>{{data.mobile_number}}</td>
+          <td>{{data.higher_qualification}}</td>
+          <td>{{data.school_name}}</td>
+          <td>{{data.program_interested}}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-success" (click)="openLg(data.id)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Leads Information:</h4>
+  </div>
+  <div class="modal-body">
+    <ngb-tabset>
+      <ngb-tab title="Lead Management">
+        <ng-template ngbTabContent>
+          <br />
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Leads Managed By</th>
+                <th>Department</th>
+                <th>Date Contacted</th>
+                <th>Comment / Feedback</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of filterLeadsManagementList;let k=index">
+                <td>{{data.leads_managed_by}}</td>
+                <td>{{data.department}}</td>
+                <td>{{data.date_contacted}}</td>
+                <td>{{data.comment}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <button type="button" class="btn btn-success" (click)="showFollow()">Follow Up</button>
+              </div>
+            </div>
+          </div>
+          <div class="row" [hidden]="hideFollowUpFormFlag">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="leads_managed_by">Leads Managed By:</label>
+                <select [(ngModel)]="leadsObj.leads_managed_by" name="leads_managed_by" class="form-control" id="leads_managed_by">
+                  <option value="0" selected="selected">--select--</option>
+                  <option *ngFor="let o of caseClosedList" [ngValue]="o.name">
+                    {{o.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="department">Department:</label>
+                <select [(ngModel)]="leadsObj.department" name="department" class="form-control" id="department">
+                  <option value="0" selected="selected">--select--</option>
+                  <option value="FOM">FOM</option>
+                  <option value="FOD">FOD</option>
+                  <option value="FOP">FOP</option>
+                  <option value="FAHP">FAHP</option>
+                  <option value="FAS">FAS</option>
+                  <option value="FBM">FBM</option>
+                  <option value="FECT">FECT</option>
+                  <option value="SGFS">SGFS</option>
+                  <option value="CPS">CPS</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="status_date">Date:</label>
+                <input type="date" class="form-control" [(ngModel)]="leadsObj.date_contacted">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="comment">Comment / Feedback:</label>
+                <select [(ngModel)]="leadsObj.comment" name="comment" class="form-control">
+                  <option value="0" selected="selected">--select--</option>
+                  <option value="Really interested">Really interested</option>
+                  <option value="Coming for campus_visit">Coming for campus visit</option>
+                  <option value="Need to discuss with parents">Need to discuss with parents</option>
+                  <option value="Need more information">Need more information</option>
+                  <option value="Qualified but considering">Qualified but considering</option>
+                  <option value="Not Qualified">Not Qualified</option>
+                  <option value="Not interested">Not interested</option>
+                  <option value="Considering">Considering</option>
+                  <option value="Not Reachable">Not Reachable</option>
+                  <option value="Applied but pending for payment">Applied but pending for payment</option>
+                  <option value="Applied but pending for results">Applied but pending for results</option>
+                  <option value="Applied">Applied</option>
+                  <option value="Joining other Institution">Joining other Institution</option>
+                  <option value="No feedback/ Not reachable">No feedback/ Not reachable</option>
+                  <option value="Not interested">Not interested</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row" [hidden]="hideFollowUpFormFlag">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <button type="button" class="btn btn-success" (click)="saveLeads()">Save</button>
+              </div>
+            </div>
+            <div class="col-sm-5">
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Application / Enrolment">
+        <ng-template ngbTabContent>
+          <br />
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="application_status">Status:</label>
+                <input type="text" class="form-control" [hidden]="!applicationReadOnly" [readonly]="applicationReadOnly"
+                  [value]="applicationEnrolled.application_status">
+                <select [hidden]="applicationReadOnly" [(ngModel)]="applicationEnrolled.application_status" name="application_status"
+                  class="form-control" id="application_status">
+                  <option value="0" selected="selected">--select--</option>
+                  <option value="Enrolled">Enrolled</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="status_date">Date:</label>
+                <input [readonly]="applicationReadOnly" type="date" class="form-control" [(ngModel)]="applicationEnrolled.status_date"
+                  id="status_date">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="case_closed_by">Case Closed By:</label>
+                <input type="text" class="form-control" [hidden]="!applicationReadOnly" [readonly]="applicationReadOnly"
+                  [value]="applicationEnrolled.case_closed_by">
+                <select [hidden]="applicationReadOnly" [(ngModel)]="applicationEnrolled.case_closed_by" name="case_closed_by"
+                  class="form-control" id="case_closed_by">
+                  <option value="0" selected="selected">--select--</option>
+                  <option *ngFor="let o of caseClosedList" [ngValue]="o.name">
+                    {{o.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="programme">Programme:</label>
+                <input type="text" class="form-control" [hidden]="!applicationReadOnly" [readonly]="applicationReadOnly"
+                  [value]="applicationEnrolled.programme">
+                <select [hidden]="applicationReadOnly" [(ngModel)]="applicationEnrolled.programme" name="programme"
+                  class="form-control" id="programme">
+                  <option value="1" selected="selected">--select name--</option>
+                  <option *ngFor="let o of getCourseList" [ngValue]="o.name">
+                    {{o.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="intake">Intake:</label>
+                <input type="text" class="form-control" [hidden]="!applicationReadOnly" [readonly]="applicationReadOnly"
+                  [value]="applicationEnrolled.intake">
+                <select [hidden]="applicationReadOnly" [(ngModel)]="applicationEnrolled.intake" name="intake" class="form-control"
+                  id="intake">
+                  <option value="0" selected="selected">--select--</option>
+                  <option value="1">01/2019</option>
+                  <option value="2">02/2019</option>
+                  <option value="3">03/2019</option>
+                  <option value="4">04/2019</option>
+                  <option value="5">05/2019</option>
+                  <option value="6">06/2019</option>
+                  <option value="7">07/2019</option>
+                  <option value="8">08/2019</option>
+                  <option value="9">09/2019</option>
+                  <option value="10">10/2019</option>
+                  <option value="11">11/2019</option>
+                  <option value="12">12/2019</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group" [hidden]="applicationReadOnly">
+                <button type="button" class="btn btn-success" (click)="saveApplication()">Save</button>
+              </div>
+            </div>
+            <div class="col-sm-5">
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Other Status" *ngIf="false">
+        <ng-template ngbTabContent>
+          <br />
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="status">Status:</label>
+                <input type="text" class="form-control" [hidden]="!otherStatusReadOnly" [readonly]="otherStatusReadOnly"
+                  [value]="otherStatus.status">
+                <select [hidden]="otherStatusReadOnly" [(ngModel)]="otherStatus.status" name="status" class="form-control"
+                  id="status">
+                  <option value="0" selected="selected">--select--</option>
+                  <option value="Joining Other Institution">Joining Other Institution</option>
+                  <option value="No feedback / Not reachable">No feedback / Not reachable</option>
+                  <option value="Not interested">Not interested</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="status_date">Date:</label>
+                <input type="date" [readonly]="otherStatusReadOnly" class="form-control" [(ngModel)]="otherStatus.status_date"
+                  id="status_date">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="case_closed_by">Case Closed By:</label>
+                <input type="text" class="form-control" [hidden]="!otherStatusReadOnly" [readonly]="otherStatusReadOnly"
+                  [value]="otherStatus.case_closed_by">
+                <select [hidden]="otherStatusReadOnly" [(ngModel)]="otherStatus.case_closed_by" name="case_closed_by"
+                  class="form-control" id="case_closed_by">
+                  <option value="0" selected="selected">--select--</option>
+                  <option *ngFor="let o of caseClosedList" [ngValue]="o.name">
+                    {{o.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group" [hidden]="otherStatusReadOnly">
+                <button type="button" class="btn btn-success" (click)="saveOtherStatus()">Save</button>
+              </div>
+            </div>
+            <div class="col-sm-5">
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0.27)" size="medium" color="#fff" type="ball-circus" fullScreen="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

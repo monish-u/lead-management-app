@@ -1,0 +1,116 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Enquiry Form:</h4>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12 offset-md-4 logo">
+        <img src="assets/images/logo.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="student_name">Student Name:</label>
+          <input type="text" class="form-control" [(ngModel)]="student_name" id="student_name">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="higher_qualification">Higher Qualification:</label>
+          <select [(ngModel)]="higher_qualification" name="higher_qualification" class="form-control" id="higher_qualification">
+            <option [value]="0" selected="selected">--select name--</option>
+            <option *ngFor="let o of higherQualificationList" [ngValue]="o.name">
+              {{o.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="nric">NRIC:</label>
+          <input type="text" class="form-control" [(ngModel)]="nric" id="nric">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="student_email">Email:</label>
+          <input type="email" class="form-control" [(ngModel)]="student_email" id="student_email" ngModel email="true">
+        </div>
+      </div>
+      <!-- <div class="col-sm-4">
+        <div class="form-group">
+          <label for="case_handled_by">Case Handled By:</label>
+          <select [(ngModel)]="case_handled_by" name="case_handled_by" class="form-control" id="case_handled_by">
+            <option [value]="0" selected="selected">--select--</option>
+            <option *ngFor="let o of caseHandledList" [ngValue]="o.name">
+              {{o.name}}
+            </option>
+          </select>
+        </div>
+      </div> -->
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="program_interested">Programme Interested:</label>
+          <select [(ngModel)]="program_interested" name="program_interested" class="form-control" id="program_interested">
+            <option [value]="0" selected="selected">--select name--</option>
+            <option *ngFor="let o of getCourseList" [ngValue]="o.name">
+              {{o.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="case_status">Status:</label>
+          <select [(ngModel)]="case_status" name="case_status" class="form-control" id="case_status">
+            <option [value]="0" selected="selected">--select--</option>
+            <option *ngFor="let o of caseStatusList" [ngValue]="o.name">
+              {{o.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="school_name">Previous Institutions:</label>
+          <select [(ngModel)]="school_name" name="school_name" class="form-control" id="school_name">
+            <option [value]="0" selected="selected">--select--</option>
+            <option *ngFor="let o of schoolsList" [ngValue]="o.name">
+              {{o.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="mobile_number">Mobile Number:</label>
+          <input type="text" class="form-control" [(ngModel)]="mobile_number">
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="assign_to">Assign To:</label>
+          <select [(ngModel)]="assign_to" name="assign_to" class="form-control" id="assign_to">
+            <option [value]="0" selected="selected">--select--</option>
+            <option *ngFor="let o of caseHandledList" [ngValue]="o.name">
+              {{o.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="saveStudentInfo()">Save</button>
+  </div>
+</ng-template>
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0.27)" size="medium" color="#fff" type="ball-circus" fullScreen="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

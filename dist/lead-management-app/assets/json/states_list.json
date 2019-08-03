@@ -1,0 +1,29 @@
+{
+  "states_list": [{
+    "name": "Kedah"
+  }, {
+    "name": "Penang"
+  }, {
+    "name": "Perak"
+  }, {
+    "name": "Perlis"
+  }, {
+    "name": "Pahang"
+  }, {
+    "name": "Terengganu"
+  }, {
+    "name": "Johor"
+  }, {
+    "name": "Melaka"
+  }, {
+    "name": "Negeri Sembilan"
+  }, {
+    "name": "Kelantan"
+  }, {
+    "name": "Sabah"
+  }, {
+    "name": "Sarawak"
+  }, {
+    "name": "Selangor"
+  }]
+}
