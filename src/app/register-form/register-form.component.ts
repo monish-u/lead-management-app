@@ -54,7 +54,7 @@ export class RegisterFormComponent implements OnInit {
     setTimeout(() => {
       this.__spinner.hide();
       this.hideForm = false;
-    }, 2000);
+    }, 4000);
     // this.__http.registerCustomer(obj).subscribe(response => {
     //   console.log(response);
     // });

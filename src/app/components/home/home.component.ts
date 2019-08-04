@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-home",
@@ -6,13 +7,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private __spinner: NgxSpinnerService) {}
 
-  ngOnInit() {}
-  over(el) {
-    el.style.display = "block";
+  ngOnInit() {
+    
   }
-  leave(el) {
-    el.style.display = "none";
-  }
+
 }
