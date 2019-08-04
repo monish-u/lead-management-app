@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ) {}
   user_name;
   user_password;
+  testVal  = "assets/images/AlaskaUSAFederal.jpg";
   public onLoginClick() {
     this.__spinner.show();
     let obj = {

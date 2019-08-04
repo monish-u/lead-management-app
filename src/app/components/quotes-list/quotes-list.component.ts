@@ -18,13 +18,20 @@ fetchedQuotes;
     this.getFetchedQuotes(this.quoteDetailsData);
     console.log(this.quoteDetailsData);
   }
-
+  imagePath="assets/images/";
   getFetchedQuotes(quoteDetailsData) {
     this.ApiRequestService.fetchQuotes(quoteDetailsData).subscribe(res => {
       this.fetchedQuotes = res;
+      this.fetchedQuotes.forEach(element => {
+        element.imageSrc=  this.imagePath+element.lender.lenderkey+".jpg"
+      });
     });
 
     //this.fetchedQuotes = this.ApiRequestService.fetchQuotes(quoteDetailsData)
+  }
+
+  successPopup() {
+    alert("Quote has been confirmed");
   }
 
 }
