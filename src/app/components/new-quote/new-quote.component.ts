@@ -28,10 +28,9 @@ export class NewQuoteComponent implements OnInit {
   fetchQuotes() {
     const quoteDetailsData = {
       loanDuration: this.loanDuration,
-      amountRequested: this.amountRequested,
+      reqAmt: this.amountRequested,
       ratePayable: this.ratePayable,
-      needByDate: this.needByDate,
-      sendAnotherAcc: this.sendAnotherAcc
+      needByDate: this.needByDate
 
     }
 

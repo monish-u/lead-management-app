@@ -17,7 +17,8 @@
   <br />
   <div class="row">
     <div class="col-lg-1"></div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" [hidden]="hideForm"></div>
+    <div class="col-sm-4" [hidden]="!hideForm">
       <br />
       <h2>Let's get started !</h2>
       <br />
@@ -121,21 +122,193 @@
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-9">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-5">
             <button
               type="submit"
-              class="btn btn-primary btn-block col-sm-4 offset-sm-4"
+              class="btn btn-primary btn-block"
               (click)="onRegisterClick()"
             >
-              Register
+              Proceed to Registration
             </button>
           </div>
+          <div class="col-sm-2"></div>
         </div>
       </form>
     </div>
     <div class="col-lg-1"></div>
-    <div class="col-lg-6">
-      One of three columns
+    <div class="col-lg-6" [hidden]="hideForm">
+      <div
+        style="font-size:18px;height:30px;text-align: center;border:2px solid #0089D1;border-radius: 1px;"
+      >
+        TPP
+      </div>
+      <br />
+      <div style="border:2px solid #0089D1;">
+        <div style="background-color: #0089D1;padding-bottom: 2px;">
+          <div class="row" style="height: 70px;">
+            <div class="col-sm-1"></div>
+            <div
+              class="col-sm-2"
+              style="padding-left:5%;padding-top: 24px;
+            border-radius: 50%;
+          background-color:#ffffff;"
+            >
+              <p>Consent</p>
+            </div>
+            <div class="col-sm-2"></div>
+            <div
+              class="col-sm-2"
+              style="padding-left:3%;padding-top: 24px;
+            border-radius: 50%;
+          background-color:#ffffff;"
+            >
+              <p>Authenticate</p>
+            </div>
+            <div class="col-sm-2"></div>
+            <div
+              class="col-sm-2"
+              style="padding-left:4%;padding-top: 24px;
+            border-radius: 50%;
+          background-color:#ffffff;"
+            >
+              <p>Complete</p>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+        <div class="form-group" style="height:10px;margin-left: 10px;"></div>
+        <div class="form-group" style="margin-left: 10px;margin-right: 10px;">
+          <label for="sel1">Which Bank would you like to connect to?</label>
+          <select multiple class="form-control" id="sel1" (blur)="test()">
+            <option>Bank of America</option>
+            <option>Bank of Ireland</option>
+            <option>RBS</option>
+            <option>Indian Bank</option>
+          </select>
+        </div>
+        <div class="form-group" [hidden]="showList" style="margin-left: 10px;">
+          <p>
+            Please provide your approval to access following information from
+            your accounts.
+          </p>
+          <p>Data you will be sharing</p>
+        </div>
+        <div class="checkbox" [hidden]="showList" style="margin-left: 10px;">
+          <label
+            ><input type="checkbox" value="" />&nbsp;&nbsp;Account
+            Details</label
+          >
+        </div>
+        <div class="checkbox" [hidden]="showList" style="margin-left: 10px;">
+          <label
+            ><input type="checkbox" value="" />&nbsp;&nbsp;Beneficiary
+            Details</label
+          >
+        </div>
+        <div class="checkbox" [hidden]="showList" style="margin-left: 10px;">
+          <label
+            ><input type="checkbox" value="" />&nbsp;&nbsp;Transaction
+            Details</label
+          >
+        </div>
+        <div class="checkbox" [hidden]="showList" style="margin-left: 10px;">
+          <label><input type="checkbox" value="" />&nbsp;&nbsp;Balances</label>
+        </div>
+        <div class="checkbox" [hidden]="showList" style="margin-left: 10px;">
+          <label
+            ><input type="checkbox" value="" />&nbsp;&nbsp;Direct Details</label
+          >
+        </div>
+        <div class="checkbox" [hidden]="showList" style="margin-left: 10px;">
+          <label
+            ><input type="checkbox" value="" />&nbsp;&nbsp;Product
+            Details</label
+          >
+        </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-danger">Cancel</button>
+          </div>
+          <div class="col-sm-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
+              Confirm
+            </button>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+        <div class="row" style="height: 20px;"></div>
+      </div>
     </div>
   </div>
 </div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Select and confirm account(s) you would like to share with TPP:.</p>
+        <form>
+          <div class="checkbox">
+            <label
+              ><input type="checkbox" value="" />&nbsp;&nbsp;Savings
+              Account</label
+            >
+          </div>
+          <div class="checkbox">
+            <label
+              ><input type="checkbox" value="" />&nbsp;&nbsp;Current
+              Account</label
+            >
+          </div>
+          <div class="checkbox disabled">
+            <label
+              ><input type="checkbox" value="" disabled />&nbsp;&nbsp;Credit
+              Cards</label
+            >
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-danger">Cancel</button>
+          </div>
+          <div class="col-sm-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="SubmitData()"
+              data-dismiss="modal"
+            >
+              Confirm
+            </button>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+        <div class="row" style="height: 20px;"></div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<ngx-spinner
+  bdOpacity="0.9"
+  bdColor="rgba(51,51,51,0.27)"
+  size="medium"
+  color="#fff"
+  type="ball-circus"
+  fullScreen="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>

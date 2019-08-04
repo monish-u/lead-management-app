@@ -7,3 +7,9 @@ nav ul li a:hover {
 nav {
   font-size: 18px;
 }
+
+.home-footer {
+  position: fixed;
+  bottom: 0px;
+  width:  100%
+}

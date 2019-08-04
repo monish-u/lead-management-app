@@ -7,10 +7,11 @@
       <div *ngFor="let quote of fetchedQuotes" class="card animated bounceInDown card-quote">
         <div class="card-body">
           <div class="row">
-          <div class="col-md-3 card-title">Amount : {{quote.amountAvailable}}</div>
-          <div class="col-md-3 card-title">Lender: {{quote.lenderName}}</div>
-          <div class="col-md-3 card-title">Interest: {{quote.interestRate}}</div>
-          <div class="col-md-3"><a href="#" class="btn btn-primary">More info</a></div>
+          <!-- <div class="col-md-2 card-title"><img [src]="https://via.placeholder.com/150.png" alt="logo"></div> -->
+          <div class="col-md-5 card-title">Lender Name: {{quote.lender.name}}</div>
+          <div class="col-md-3 card-title">Amount : {{quote.amount}}</div>
+          <div class="col-md-2 card-title">Interest: {{quote.ratePayable}}</div>
+          
         </div>
         </div>
       </div>

@@ -22,9 +22,21 @@ export class RegisterFormComponent implements OnInit {
   user_email;
   user_id;
   user_confirm_password;
+  showList = true;
+  hideForm = true;
   ngOnInit() {}
   checkDB() {
     alert(this.date_of_birth);
+  }
+  showPopUp(el) {
+    el.style.display = "block";
+  }
+  test() {
+    this.showList = false;
+  }
+  SubmitData() {
+    alert("User Registered");
+    this.router.navigate(["/home"]);
   }
   public onRegisterClick() {
     this.__spinner.show();
@@ -37,8 +49,13 @@ export class RegisterFormComponent implements OnInit {
       userid: this.user_id,
       password: this.user_password
     };
-    this.__http.registerCustomer(obj).subscribe(response => {
-      console.log(response);
-    });
+
+    setTimeout(() => {
+      this.__spinner.hide();
+      this.hideForm = false;
+    }, 2000);
+    // this.__http.registerCustomer(obj).subscribe(response => {
+    //   console.log(response);
+    // });
   }
 }
