@@ -96,12 +96,12 @@
                 Operating Expenses
               </label>
             </div>
-            <div class="form-check">
+            <!-- <div class="form-check">
               <input class="form-check-input" type="radio" name="quoteTypeRadio" id="warehouse" value="warehouse">
               <label class="form-check-label pl-2">
                 Warehouse expenses
               </label>
-            </div>
+            </div> -->
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="quoteTypeRadio" id="workingCapital"
@@ -117,9 +117,52 @@
     <div class="col-md-8">
      
       <div class="quoteDetails" [ngSwitch]="selectedQuoteType">
-        <form action="" *ngSwitchCase="'auto'">
-          this is auto
-        </form>
+          <div class="slideInLeft animated quote-details-box" *ngSwitchCase="'auto'">
+              <h4 class="">Please enter details for {{selectedQuoteType}} loan</h4>
+              <form (ngSubmit)="fetchQuotes()" class="mt-4">
+  
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Duration of loan</label>
+                    <div class="col-sm-5 form-inline">
+                      <input type="email" class="form-control" [(ngModel)]="loanDuration" name="loanDuration" id="loanDuration" placeholder="Eg: 5">
+                      <div class="pl-2">months</div>
+                    </div>
+                    
+                  </div>
+                  <div class="form-group row">
+                    <label for="amountRequested" class="col-sm-4 col-form-label">Amount requested</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" [(ngModel)]="amountRequested" name="amountRequested" id="amountRequested" placeholder="Eg: £1,000">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Rate payable (%)</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" [(ngModel)]="ratePayable" name="ratePayable" id="ratePayable" placeholder="Eg: 8">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Need by date</label>
+                    <div class="col-sm-8">
+                      <input type="date" [(ngModel)]="needByDate" name="needByDate" class="form-control" id="needByDate">
+                    </div>
+                  </div>
+        
+                  <div class="form-group row">
+                      <label for="inputPassword3" class="col-sm-4 col-form-label">Send to Another A/C</label>
+                      <div class="col-sm-8">
+                        <input type="text" [disabled]="true" [(ngModel)]="sendAnotherAcc" name="sendAnotherAcc" class="form-control" id="sendAnotherAcc" placeholder="Eg: 000231900123124">
+                      </div>
+                    </div>
+        
+                  <div class="form-group row">
+                    <div class="col-sm-8">
+                      <button type="submit" value="submit" class="btn btn-lg btn-primary">Fetch Quotes</button>
+                    </div>
+                  </div>
+        
+                </form>
+          </div>
 
         <div class="slideInLeft animated quote-details-box" *ngSwitchCase="'personal'">
             <h4 class="">Please enter details for {{selectedQuoteType}} loan</h4>
@@ -168,9 +211,150 @@
               </form>
         </div>
 
+        <div class="slideInLeft animated quote-details-box" *ngSwitchCase="'home'">
+            <h4 class="">Please enter details for {{selectedQuoteType}} loan</h4>
+            <form (ngSubmit)="fetchQuotes()" class="mt-4">
+
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Duration of loan</label>
+                  <div class="col-sm-5 form-inline">
+                    <input type="email" class="form-control" [(ngModel)]="loanDuration" name="loanDuration" id="loanDuration" placeholder="Eg: 5">
+                    <div class="pl-2">months</div>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <label for="amountRequested" class="col-sm-4 col-form-label">Amount requested</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="amountRequested" name="amountRequested" id="amountRequested" placeholder="Eg: £1,000">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Rate payable (%)</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="ratePayable" name="ratePayable" id="ratePayable" placeholder="Eg: 8">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Need by date</label>
+                  <div class="col-sm-8">
+                    <input type="date" [(ngModel)]="needByDate" name="needByDate" class="form-control" id="needByDate">
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Send to Another A/C</label>
+                    <div class="col-sm-8">
+                      <input type="text" [disabled]="true" [(ngModel)]="sendAnotherAcc" name="sendAnotherAcc" class="form-control" id="sendAnotherAcc" placeholder="Eg: 000231900123124">
+                    </div>
+                  </div>
+      
+                <div class="form-group row">
+                  <div class="col-sm-8">
+                    <button type="submit" value="submit" class="btn btn-lg btn-primary">Fetch Quotes</button>
+                  </div>
+                </div>
+      
+              </form>
+        </div>
+
+        <div class="slideInLeft animated quote-details-box" *ngSwitchCase="'vc'">
+            <h4 class="">Please enter details for {{selectedQuoteType}} loan</h4>
+            <form (ngSubmit)="fetchQuotes()" class="mt-4">
+
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Duration of loan</label>
+                  <div class="col-sm-5 form-inline">
+                    <input type="email" class="form-control" [(ngModel)]="loanDuration" name="loanDuration" id="loanDuration" placeholder="Eg: 5">
+                    <div class="pl-2">months</div>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <label for="amountRequested" class="col-sm-4 col-form-label">Amount requested</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="amountRequested" name="amountRequested" id="amountRequested" placeholder="Eg: £1,000">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Rate payable (%)</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="ratePayable" name="ratePayable" id="ratePayable" placeholder="Eg: 8">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Need by date</label>
+                  <div class="col-sm-8">
+                    <input type="date" [(ngModel)]="needByDate" name="needByDate" class="form-control" id="needByDate">
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Send to Another A/C</label>
+                    <div class="col-sm-8">
+                      <input type="text" [disabled]="true" [(ngModel)]="sendAnotherAcc" name="sendAnotherAcc" class="form-control" id="sendAnotherAcc" placeholder="Eg: 000231900123124">
+                    </div>
+                  </div>
+      
+                <div class="form-group row">
+                  <div class="col-sm-8">
+                    <button type="submit" value="submit" class="btn btn-lg btn-primary">Fetch Quotes</button>
+                  </div>
+                </div>
+      
+              </form>
+        </div>
+
+        <div class="slideInLeft animated quote-details-box" *ngSwitchCase="'gold'">
+            <h4 class="">Please enter details for {{selectedQuoteType}} loan</h4>
+            <form (ngSubmit)="fetchQuotes()" class="mt-4">
+
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Duration of loan</label>
+                  <div class="col-sm-5 form-inline">
+                    <input type="email" class="form-control" [(ngModel)]="loanDuration" name="loanDuration" id="loanDuration" placeholder="Eg: 5">
+                    <div class="pl-2">months</div>
+                  </div>
+                  
+                </div>
+                <div class="form-group row">
+                  <label for="amountRequested" class="col-sm-4 col-form-label">Amount requested</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="amountRequested" name="amountRequested" id="amountRequested" placeholder="Eg: £1,000">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Rate payable (%)</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="ratePayable" name="ratePayable" id="ratePayable" placeholder="Eg: 8">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Need by date</label>
+                  <div class="col-sm-8">
+                    <input type="date" [(ngModel)]="needByDate" name="needByDate" class="form-control" id="needByDate">
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-4 col-form-label">Send to Another A/C</label>
+                    <div class="col-sm-8">
+                      <input type="text" [disabled]="true" [(ngModel)]="sendAnotherAcc" name="sendAnotherAcc" class="form-control" id="sendAnotherAcc" placeholder="Eg: 000231900123124">
+                    </div>
+                  </div>
+      
+                <div class="form-group row">
+                  <div class="col-sm-8">
+                    <button type="submit" value="submit" class="btn btn-lg btn-primary">Fetch Quotes</button>
+                  </div>
+                </div>
+      
+              </form>
+        </div>
+
       
 
-
+<!-- 
 
 
         <form action="" *ngSwitchCase="'home'">
@@ -205,7 +389,7 @@
 
         <form action="" *ngSwitchCase="workingCapital">
           working caoiuta
-        </form>
+        </form> -->
 
       </div>
     </div>

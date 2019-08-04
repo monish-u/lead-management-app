@@ -21,9 +21,14 @@ export class LoginComponent implements OnInit {
       username: this.user_name,
       password: this.user_password
     };
-    this.__http.loginBorrower(obj).subscribe(response => {
-      console.log(response);
-    });
+    setTimeout(()=>{
+      this.__spinner.hide();
+      this.router.navigate(["/home"]);
+    },2000);
+    
+    // this.__http.loginBorrower(obj).subscribe(response => {
+    //   console.log(response);
+    // });
   }
   register() {
     this.router.navigate(["/register"]);

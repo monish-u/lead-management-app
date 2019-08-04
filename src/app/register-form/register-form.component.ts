@@ -24,10 +24,9 @@ export class RegisterFormComponent implements OnInit {
   user_confirm_password;
   showList = true;
   hideForm = true;
+  showSuccess = true;
   ngOnInit() {}
-  checkDB() {
-    alert(this.date_of_birth);
-  }
+  checkDB() {}
   showPopUp(el) {
     el.style.display = "block";
   }
@@ -35,8 +34,10 @@ export class RegisterFormComponent implements OnInit {
     this.showList = false;
   }
   SubmitData() {
-    alert("User Registered");
-    this.router.navigate(["/home"]);
+    this.showSuccess = false;
+    setTimeout(() => {
+      this.router.navigate(["/home"]);
+    }, 2000);
   }
   public onRegisterClick() {
     this.__spinner.show();

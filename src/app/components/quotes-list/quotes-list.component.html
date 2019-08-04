@@ -1,21 +1,59 @@
 <app-header></app-header>
 <div class="container-fluid">
-    <h3 class="mt-4">Fetched Quotes</h3>
+  <h3 class="mt-4">Fetched Quotes</h3>
   <div class="row mt-4">
-    
+
     <div class="col-md-8 offset-md-2">
       <div *ngFor="let quote of fetchedQuotes" class="card animated bounceInDown card-quote">
         <div class="card-body">
           <div class="row">
-          <!-- <div class="col-md-2 card-title"><img [src]="https://via.placeholder.com/150.png" alt="logo"></div> -->
-          <div class="col-md-5 card-title">Lender Name: {{quote.lender.name}}</div>
-          <div class="col-md-3 card-title">Amount : {{quote.amount}}</div>
-          <div class="col-md-2 card-title">Interest: {{quote.ratePayable}}</div>
-          
-        </div>
+            <!-- <div class="col-md-2 card-title"><img [src]="https://via.placeholder.com/150.png" alt="logo"></div> -->
+            <div class="col-md-5 card-title">Lender Name: {{quote.lender.name}}</div>
+            <div class="col-md-3 card-title">Amount : {{quote.amount}}</div>
+            <div class="col-md-2 card-title">Interest: {{quote.ratePayable}}</div>
+            <div class="col-md-2 card-title"><button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#quoteItem">
+                More info
+              </button></div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="quoteItem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Quote Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          Lender Name: {{fetchedQuotes[0].lender.name}}</div>
+         <div>Loan type: {{fetchedQuotes[0].lender.loanType.typeOfLoan}}</div>
+         <div>Lender Location : {{fetchedQuotes[0].lender.location}}</div>
+         <div>Duration: {{fetchedQuotes[0].duration}}</div>
+         <div>Amount: {{fetchedQuotes[0].amount}}</div>
+         <div>Rate payable: {{fetchedQuotes[0].ratePayable}}</div>
+         <div>Need by date: {{fetchedQuotes[0].needByDate}}</div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<app-footer class="q-footer"></app-footer>

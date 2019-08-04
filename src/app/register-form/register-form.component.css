@@ -1,0 +1,8 @@
+.home-footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #0089d1;
+  color: #ffffff;
+  font-family: "Comic Sans MS";
+}
